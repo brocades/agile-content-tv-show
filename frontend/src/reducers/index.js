@@ -15,12 +15,14 @@ function tvshow (state = initialAppState, action) {
 			const { tvshowData } = action
 			const tvshowInfo = {
 				cast: tvshowData.Cast,
-				genres: tvshowData.Genres,
+				genres: tvshowData.Genres.map(genre => genre.Title),
 				id: tvshowData.ID,
 				images: tvshowData.Images,
 				synopsis: tvshowData.Synopsis,
-				title: tvshowData.Title
+				title: tvshowData.Title,
+				year: tvshowData.Year,
 			}
+			console.log(tvshowInfo.genres[0])
 			return {
 				...state,
 				tvshowInfo
