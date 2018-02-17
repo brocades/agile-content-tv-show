@@ -1,12 +1,18 @@
 import {
 	RETRIEVE_TVSHOW_DATA,
 	RETRIEVE_EPISODES_DATA,
+	GET_EPISODE_DETAILS,
+	CHANGE_FOOTER_INFO,
+	CHANGE_SEASON,
 } from '../actions'
 
 const initialAppState = {
 	episodes: {},
 	tvshowInfo: {},
 	seasons: [],
+	selectedSeason: 1,
+	detailedEpisode: "",
+	footerOption: "general",
 }
 
 function tvshow (state = initialAppState, action) {
@@ -14,18 +20,17 @@ function tvshow (state = initialAppState, action) {
 		case RETRIEVE_TVSHOW_DATA:
 			const { tvshowData } = action
 			const tvshowInfo = {
-				cast: tvshowData.Cast,
+				cast: tvshowData.Cast.map(actor => actor.Name),
 				genres: tvshowData.Genres.map(genre => genre.Title),
 				id: tvshowData.ID,
-				images: tvshowData.Images,
+				image: tvshowData.Images,
 				synopsis: tvshowData.Synopsis,
 				title: tvshowData.Title,
 				year: tvshowData.Year,
 			}
-			console.log(tvshowInfo.genres[0])
 			return {
 				...state,
-				tvshowInfo
+				tvshowInfo,
 			}
 		case RETRIEVE_EPISODES_DATA:
 			const { episodesData } = action
@@ -35,7 +40,7 @@ function tvshow (state = initialAppState, action) {
 				if (episode) {
 					episodes = {
 						...episodes,
-							[episode.id]: episode
+						[episode.ID]: episode,
 					}
 					seasons.add(episode.SeasonNumber)
 				}
@@ -44,6 +49,23 @@ function tvshow (state = initialAppState, action) {
 				...state,
 				episodes,
 				seasons: [...seasons],
+			}
+		case GET_EPISODE_DETAILS:
+			const { episodeId } = action
+			return {
+				...state,
+				detailedEpisode: episodeId,
+			}
+		case CHANGE_FOOTER_INFO:
+			const { footerOption } = action
+			return {
+				...state,
+				footerOption: footerOption,
+			}
+		case CHANGE_SEASON:
+			return {
+				...state,
+				selectedSeason: action.seasonNumber,
 			}
 		default:
 			return state

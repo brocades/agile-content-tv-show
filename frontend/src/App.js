@@ -4,15 +4,14 @@ import './App.css';
 import { connect } from 'react-redux'
 import { fetchTvshowData, fetchEpisodesData } from './actions'
 import TvshowHeader from './components/TvshowHeader'
+import TvshowFooter from './components/TvshowFooter'
+import EpisodesSidebar from './components/EpisodesSidebar'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.retrieveTvshowData()
     this.props.retrieveEpisodesData()
-    console.log(this.props.episodes)
-    console.log(this.props.seasons)
-    console.log(this.props.tvshowInfo)
   }
 
   render() {
@@ -22,22 +21,14 @@ class App extends Component {
           <TvshowHeader />
         </header>
         <p className="App-intro">
-            {this.props.seasons.map(season => (
-              <p>{season}</p>
-              ))}
+
         </p>
+        <EpisodesSidebar />
+        <footer className="app-footer">
+          <TvshowFooter />
+        </footer>
       </div>
     );
-  }
-}
-
-function mapStateToProps(tvshow) {
-  const allEpisodes = Object.keys(tvshow.episodes).map(key => tvshow.episodes[key])
-
-  return {
-    episodes: allEpisodes,
-    seasons: tvshow.seasons,
-    tvshow: tvshow.tvshowInfo
   }
 }
 
@@ -48,4 +39,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
