@@ -19,15 +19,15 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={() => (
-          <Redirect to="/pennydreadful"/>
+          <Redirect to={`/${this.props.tvshowUrlPath}`}/>
         )}/>
-        <Route path="/pennydreadful" render={() => (
+        <Route path={`/${this.props.tvshowUrlPath}`} render={() => (
           <div className="app-content">
             <header className="App-header">
               <TvshowHeader />
             </header>
 
-            <Route path={`/${this.props.tvshowUrlPath}/season`} component={EpisodesSidebar}/>
+            <Route path={`/${this.props.tvshowUrlPath}`} component={EpisodesSidebar}/>
 
             <footer className="app-footer">
               <TvshowFooter />
