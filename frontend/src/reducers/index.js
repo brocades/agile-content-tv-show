@@ -27,6 +27,7 @@ function tvshow (state = initialAppState, action) {
 				synopsis: tvshowData.Synopsis,
 				title: tvshowData.Title,
 				year: tvshowData.Year,
+				urlPath: tvshowData.Title.replace(/\s/g,'').toLowerCase()
 			}
 			return {
 				...state,

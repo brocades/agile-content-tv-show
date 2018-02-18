@@ -3,38 +3,48 @@ import React, { Component } from 'react'
 import EpisodesList from './EpisodesList'
 import { selectSeason } from '../actions'
 import { If, Then, Else } from 'react-if'
+import { Route, Link } from 'react-router-dom'
 
-function EpisodesSidebar(props) {
-	const seasonEpisodes = props.episodes
-		.filter(episode => episode.SeasonNumber == props.selectedSeason)
+class EpisodesSidebar extends Component {
 
-	return (
-		<section className="tvshow-episodes-sidebar">
-			<div className="tvshow-episodes-seasons-buttons">
-				{props.seasons.map(seasonNumber => (
-					<If condition={seasonNumber === props.selectedSeason}>
-						<Then>
-							<button
-								onClick={() => props.changeSeason(seasonNumber)}
-								className="tvshow-episodes-season-button selected">
-								{`S ${seasonNumber}`}
-							</button>
-						</Then>
+	render() {
 
-						<Else>
-							<button
-								onClick={() => props.changeSeason(seasonNumber)}
-								className="tvshow-episodes-season-button">
-								{`S ${seasonNumber}`}
-							</button>
-						</Else>
-					</If>
-					))}
-			</div>
+		return (
+			<section className="tvshow-episodes-sidebar">
+				<div className="tvshow-episodes-seasons-buttons">
+					{this.props.seasons.map(seasonNumber => (
+						<If condition={seasonNumber === this.props.selectedSeason}>
+							<Then>
+								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
+									<button
+										onClick={() => this.props.changeSeason(seasonNumber)}
+										className="tvshow-episodes-season-button selected">
+										{`S ${seasonNumber}`}
+									</button>
+								</Link>
+							</Then>
 
-			<EpisodesList episodes={seasonEpisodes} />
-		</section>
-	)
+							<Else>
+								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
+									<button
+										onClick={() => this.props.changeSeason(seasonNumber)}
+										className="tvshow-episodes-season-button">
+										{`S ${seasonNumber}`}
+									</button>
+								</Link>
+							</Else>
+						</If>
+						))}
+				</div>
+
+
+				<Route path="/:tvshowname/season/:seasonNumber" render={({ match }) => (
+					<EpisodesList season={match.params.seasonNumber} />
+					)}/>
+
+			</section>
+		)
+	}
 }
 
 function mapStateToProps(tvshow) {
@@ -46,7 +56,8 @@ function mapStateToProps(tvshow) {
 	return {
 		seasons: tvshow.seasons ? tvshow.seasons : [],
 		episodes: allEpisodes,
-		selectedSeason: tvshow.selectedSeason
+		selectedSeason: tvshow.selectedSeason,
+		tvshowUrlPath: tvshow.tvshowInfo.urlPath ? tvshow.tvshowInfo.urlPath : "",
 	}
 }
 

@@ -6,6 +6,7 @@ import { fetchTvshowData, fetchEpisodesData } from './actions'
 import TvshowHeader from './components/TvshowHeader'
 import TvshowFooter from './components/TvshowFooter'
 import EpisodesSidebar from './components/EpisodesSidebar'
+import { Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
 
@@ -17,18 +18,34 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <TvshowHeader />
-        </header>
-        <p className="App-intro">
+        <Route exact path="/" render={() => (
+          <Redirect to="/pennydreadful"/>
+        )}/>
+        <Route path="/pennydreadful" render={() => (
+          <div className="app-content">
+            <header className="App-header">
+              <TvshowHeader />
+            </header>
 
-        </p>
-        <EpisodesSidebar />
-        <footer className="app-footer">
-          <TvshowFooter />
-        </footer>
+            <Route path={`/${this.props.tvshowUrlPath}/season`} component={EpisodesSidebar}/>
+
+            <footer className="app-footer">
+              <TvshowFooter />
+            </footer>
+          </div>
+        )}/>
+
+
+
+
       </div>
     );
+  }
+}
+
+function mapStateToProps(tvshow) {
+  return {
+    tvshowUrlPath: tvshow.tvshowInfo.urlPath ? tvshow.tvshowInfo.urlPath.trim() : "",
   }
 }
 
@@ -39,4 +56,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
