@@ -2,6 +2,7 @@ import React from 'react'
 import { If, Then, Else } from 'react-if'
 import { connect } from 'react-redux'
 import { getEpisodeDetails } from '../actions'
+import '../style/episodeitem.css'
 
 function EpisodeItem(props) {
 		const { ID, Duration, EpisodeNumber, Image, Synopsis, Title } = props.episode
@@ -14,11 +15,11 @@ function EpisodeItem(props) {
 					<Then>
 						<div className="tvshow-episode-item-row expanded">
 							<div className="tvshow-episode-item-name">
-								<h3 className="tvshow-episode-item-number">
+								<h3 className="tvshow-episode-item-text">
 									{EpisodeNumber}
 								</h3>
 
-								<h3 className="tvshow-episode-item-title">
+								<h3 className="tvshow-episode-item-text">
 									{Title}
 								</h3>
 							</div>
@@ -39,17 +40,17 @@ function EpisodeItem(props) {
 					<Else>
 						<div className="tvshow-episode-item-row">
 							<div className="tvshow-episode-item-name">
-								<h3 className="tvshow-episode-item-number">
+								<h3 className="tvshow-episode-item-text">
 									{EpisodeNumber}
 								</h3>
 
-								<h3 className="tvshow-episode-item-title">
+								<h3 className="tvshow-episode-item-text">
 									{Title}
 								</h3>
 							</div>
 
 							<div className="tvshow-episode-item-detail">
-								<h3 className="tvshow-episode-item-duration">
+								<h3 className="tvshow-episode-item-text">
 									{`${Duration} min`}
 								</h3>
 							</div>

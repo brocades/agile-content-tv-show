@@ -1,0 +1,27 @@
+.tvshow-cast-info {
+	padding: 20px;
+}
+
+.tvshow-cast-actor-box {
+	display: inline-block;
+	margin-right: 20px;
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #303030;
+}
+
+.tvshow-cast-actor {
+	display: table;
+	width: 200px;
+	height: 100px;
+	text-align: center;
+}
+
+.tvshow-cast-actor-name {
+	display: table-cell;
+	width: 200px;
+	height: 100px;
+	vertical-align: middle;
+}

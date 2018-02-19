@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import React from 'react'
+import '../style/tvshowheader.css';
 
 function TvshowHeader(props) {
 	return (
@@ -12,11 +13,11 @@ function TvshowHeader(props) {
 			<div className="tvshow-header-subtitle-container">
 				{props.genres.map(genre => (
 						<h3 className="tvshow-header-subtitle-info">
-							{`${genre} / `}
+							{` ${genre} / ` + " "}
 						</h3>
 					))}
 				<h3 className="tvshow-header-subtitle-info">
-					{`/ ${props.year}`}
+					{` ${props.year}`}
 				</h3>
 			</div>
 		</section>

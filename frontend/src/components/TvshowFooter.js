@@ -4,6 +4,7 @@ import { If, Then, Else } from 'react-if'
 import { selectFooterOption } from '../actions'
 import GeneralInfo from './GeneralInfo'
 import CastInfo from './CastInfo'
+import '../style/tvshowfooter.css'
 
 function TvshowFooter(props) {
 	return (

@@ -1,6 +1,7 @@
 import React from 'react'
 import EpisodeItem from './EpisodeItem'
 import { connect } from 'react-redux'
+import '../style/episodeslist.css'
 
 function EpisodesList(props) {
 	const seasonEpisodes = props.episodes

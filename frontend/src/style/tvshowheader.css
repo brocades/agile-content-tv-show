@@ -1,0 +1,11 @@
+.tvshow-header-title {
+	font-size: 2.5em;
+	margin-bottom: 10px;
+}
+
+.tvshow-header-subtitle-info {
+	display: inline-block;
+	font-weight: lighter;
+	margin: 0;
+	margin-left: 5px;
+}

@@ -4,6 +4,7 @@ import EpisodesList from './EpisodesList'
 import { selectSeason } from '../actions'
 import { If, Then, Else } from 'react-if'
 import { Route, Link } from 'react-router-dom'
+import '../style/episodessidebar.css'
 
 class EpisodesSidebar extends Component {
 
@@ -16,9 +17,9 @@ class EpisodesSidebar extends Component {
 						<If condition={seasonNumber === this.props.selectedSeason}>
 							<Then>
 								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
-									<button
+									<button id={seasonNumber}
 										onClick={() => this.props.changeSeason(seasonNumber)}
-										className="tvshow-episodes-season-button selected">
+										className="tvshow-episodes-seasons-button selected">
 										{`S ${seasonNumber}`}
 									</button>
 								</Link>
@@ -26,15 +27,18 @@ class EpisodesSidebar extends Component {
 
 							<Else>
 								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
-									<button
+									<button id={seasonNumber}
 										onClick={() => this.props.changeSeason(seasonNumber)}
-										className="tvshow-episodes-season-button">
+										className="tvshow-episodes-seasons-button">
 										{`S ${seasonNumber}`}
 									</button>
 								</Link>
 							</Else>
 						</If>
 						))}
+						<button className="tvshow-episodes-seasons-button-fill">
+							season
+						</button>
 				</div>
 
 

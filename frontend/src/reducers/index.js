@@ -23,7 +23,7 @@ function tvshow (state = initialAppState, action) {
 				cast: tvshowData.Cast.map(actor => actor.Name),
 				genres: tvshowData.Genres.map(genre => genre.Title),
 				id: tvshowData.ID,
-				image: tvshowData.Images,
+				image: tvshowData.Images.Background,
 				synopsis: tvshowData.Synopsis,
 				title: tvshowData.Title,
 				year: tvshowData.Year,

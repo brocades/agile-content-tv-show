@@ -23,11 +23,20 @@ class App extends Component {
         )}/>
         <Route path={`/${this.props.tvshowUrlPath}`} render={() => (
           <div className="app-content">
-            <header className="App-header">
-              <TvshowHeader />
-            </header>
+            <div
+              className="tvshow-content"
+              style={{"backgroundImage": `url(${this.props.backgroundImage})`}}>
 
-            <Route path={`/${this.props.tvshowUrlPath}`} component={EpisodesSidebar}/>
+              <div className="opaque-layer" >
+                <header className="App-header">
+                  <TvshowHeader />
+                </header>
+
+                <div className="tvshow-content-area">
+                </div>
+                <Route path={`/${this.props.tvshowUrlPath}`} component={EpisodesSidebar}/>
+              </div>
+            </div>
 
             <footer className="app-footer">
               <TvshowFooter />
@@ -46,6 +55,7 @@ class App extends Component {
 function mapStateToProps(tvshow) {
   return {
     tvshowUrlPath: tvshow.tvshowInfo.urlPath ? tvshow.tvshowInfo.urlPath.trim() : "",
+    backgroundImage: tvshow.tvshowInfo.image ? tvshow.tvshowInfo.image : "",
   }
 }
 
