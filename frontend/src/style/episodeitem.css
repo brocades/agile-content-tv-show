@@ -8,6 +8,16 @@
 	position: relative;
 }
 
+.tvshow-episode-item-thumbnail {
+	height: 100%;
+  width: 100%;
+}
+
+.tvshow-episode-item-description {
+	padding: 5px;
+	text-align: justify;
+}
+
 .tvshow-episode-item-text {
 	display: inline-block;
 	font-weight: lighter;

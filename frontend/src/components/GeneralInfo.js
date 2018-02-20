@@ -5,7 +5,7 @@ function GeneralInfo(props) {
 		<section className="tvshow-footer-general-info">
 			<div className="tvshow-general-info-container">
 				<h3 className="tvshow-general-info">
-					Synopsis
+					SINOPSE
 				</h3>
 
 				<div className="tvshow-general-info-synopsis">

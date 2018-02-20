@@ -13,13 +13,13 @@ function TvshowFooter(props) {
 				<button
 					onClick={() => props.selectFooterOption("general")}
 					className="tvshow-footer-button selected">
-				GENERAL
+				RESUMO
 				</button>
 
 				<button
 					onClick={() => props.selectFooterOption("cast")}
 					className="tvshow-footer-button">
-				CAST
+				ELENCO
 				</button>
 			</div>
 

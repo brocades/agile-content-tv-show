@@ -28,8 +28,8 @@ function EpisodeItem(props) {
 									{`${Duration} min`}
 								</h3>
 							</div>
-							<div className="tvshow-episode-item-thumbnail">
-								<img src={Image} alt={Title} height="100" widht="100"/>
+							<div className="tvshow-episode-item-image">
+								<img className="tvshow-episode-item-thumbnail" src={Image} alt={Title} height="100" widht="100"/>
 							</div>
 
 							<div className="tvshow-episode-item-description">

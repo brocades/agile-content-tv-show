@@ -1,3 +1,6 @@
 .tvshow-episode-list {
 	text-align: left;
+	overflow-y: scroll;
+  max-height: 320px;
+  margin-top: 2px;
 }

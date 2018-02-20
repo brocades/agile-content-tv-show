@@ -1,5 +1,6 @@
 .tvshow-footer-buttons-container {
 	text-align: left;
+	border-bottom: solid 2px darkgrey;
 }
 
 .tvshow-footer-button {
@@ -12,18 +13,11 @@
 	outline: none;
 	cursor: pointer;
 	width: 30%;
+	margin-bottom: -3px;
 }
 
-.tvshow-episodes-seasons-button-fill {
-	background-color: transparent;
-	border: none;
-	border-bottom: solid 2px darkgrey;
-	text-transform: capitalize;
-	color: transparent;
-	padding: 10px;
-	outline: none;
-	cursor: pointer;
-	width: 40%;
+.tvshow-footer-button:hover {
+	background-color: rgba(21,21,21, .7);
 }
 
 .selected {

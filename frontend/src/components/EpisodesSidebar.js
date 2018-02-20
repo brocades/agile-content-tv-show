@@ -20,7 +20,7 @@ class EpisodesSidebar extends Component {
 									<button id={seasonNumber}
 										onClick={() => this.props.changeSeason(seasonNumber)}
 										className="tvshow-episodes-seasons-button selected">
-										{`S ${seasonNumber}`}
+										{`T ${seasonNumber}`}
 									</button>
 								</Link>
 							</Then>
@@ -30,15 +30,12 @@ class EpisodesSidebar extends Component {
 									<button id={seasonNumber}
 										onClick={() => this.props.changeSeason(seasonNumber)}
 										className="tvshow-episodes-seasons-button">
-										{`S ${seasonNumber}`}
+										{`T ${seasonNumber}`}
 									</button>
 								</Link>
 							</Else>
 						</If>
 						))}
-						<button className="tvshow-episodes-seasons-button-fill">
-							season
-						</button>
 				</div>
 
 

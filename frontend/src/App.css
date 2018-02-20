@@ -1,5 +1,19 @@
 .App {
   text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.app-content {
+  height: 100%;
+}
+
+.tvshow-content {
+  height: 70%;
 }
 
 .App-logo {
@@ -8,15 +22,14 @@
 }
 
 .App-header {
-  height: 150px;
   padding: 20px;
+  padding-bottom: 0px;
   color: white;
   text-align: left;
 }
 
 .app-footer {
-  height: 150px;
-  padding: 20px;
+  height: 30%;
   color: white;
   text-align: left;
   background-color: #212121;
@@ -39,16 +52,44 @@
 
 
 .opaque-layer {
-  background: linear-gradient(
-                     rgba(20,20,20, .6),
-                     rgba(20,20,20, .6));
+  height: 100%;
+  background: linear-gradient(to right, rgba(20,20,20, .6), #000);
+
   box-shadow:
     inset 0px 200px 300px -150px #000,
     inset 0px -200px 300px -150px #000;
 }
 
+
+
 .tvshow-content-area {
   display: inline-block;
-  width: 70%;
-  height: 100%;
+  width: 60%;
+}
+
+@media only screen
+and (min-device-width : 350px)
+and (max-device-width : 768px) {
+
+  .tvshow-content-area {
+    display: none;
+    width: 0%;
+  }
+
+  .opaque-layer {
+    background: rgba(20,20,20, .8);
+  }
+
+  .tvshow-content {
+    height: 78%;
+  }
+
+  .app-footer {
+    padding-top: 20px;
+    height: auto;
+  }
+}
+
+.tvshow-footer {
+  padding: 20px;
 }
