@@ -14,8 +14,8 @@ class EpisodesSidebar extends Component {
 		return (
 			<section className="tvshow-episodes-sidebar">
 				<div className="buttons-container">
-					{this.props.seasons.map(seasonNumber => (
-						<If condition={seasonNumber === this.props.selectedSeason}>
+					{this.props.seasons.map((seasonNumber, key) => (
+						<If key={key} condition={seasonNumber === this.props.selectedSeason}>
 							<Then>
 								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
 									<button id={seasonNumber}
@@ -41,7 +41,7 @@ class EpisodesSidebar extends Component {
 
 
 				<Route path="/:tvshowname/season/:seasonNumber" render={({ match }) => (
-					<EpisodesList season={match.params.seasonNumber} />
+					<EpisodesList season={parseInt(match.params.seasonNumber, 10)} />
 					)}/>
 
 			</section>

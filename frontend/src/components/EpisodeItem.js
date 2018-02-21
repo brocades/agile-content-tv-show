@@ -3,6 +3,7 @@ import { If, Then, Else } from 'react-if'
 import { connect } from 'react-redux'
 import { getEpisodeDetails } from '../actions'
 import '../style/episodeitem.css'
+import '../style/commons.css'
 
 function EpisodeItem(props) {
 		const { ID, Duration, EpisodeNumber, Image, Synopsis, Title } = props.episode
@@ -29,7 +30,10 @@ function EpisodeItem(props) {
 								</h3>
 							</div>
 							<div className="tvshow-episode-item-image">
-								<img className="tvshow-episode-item-thumbnail" src={Image} alt={Title} height="100" widht="100"/>
+								<picture className="tvshow-episode-item-thumbnail">
+								  <source srcSet={Image} type="image/webp"/>
+								  <img src="" alt={Title}/>
+								</picture>
 							</div>
 
 							<div className="tvshow-episode-item-description">
@@ -38,7 +42,7 @@ function EpisodeItem(props) {
 						</div>
 					</Then>
 					<Else>
-						<div className="tvshow-episode-item-row">
+						<div className="tvshow-episode-item-row collapsed">
 							<div className="tvshow-episode-item-name">
 								<h3 className="tvshow-episode-item-text">
 									{EpisodeNumber}

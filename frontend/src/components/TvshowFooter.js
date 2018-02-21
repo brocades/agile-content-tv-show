@@ -9,9 +9,9 @@ import '../style/commons.css'
 function TvshowFooter(props) {
 	return (
 		<section className="tvshow-footer">
-			<div className="buttons-container">
-				<If condition={props.footerOption === "resumo"}>
-					<Then>
+			<If condition={props.footerOption === "resumo"}>
+				<Then>
+					<div className="buttons-container">
 						<button
 							onClick={() => props.selectFooterOption("resumo")}
 							className="button selected">
@@ -23,9 +23,11 @@ function TvshowFooter(props) {
 							className="button">
 						ELENCO
 						</button>
-					</Then>
+					</div>
+				</Then>
 
-					<Else>
+				<Else>
+					<div className="buttons-container">
 						<button
 							onClick={() => props.selectFooterOption("resumo")}
 							className="button">
@@ -37,9 +39,10 @@ function TvshowFooter(props) {
 							className="button selected">
 						ELENCO
 						</button>
-					</Else>
-				</If>
-			</div>
+					</div>
+				</Else>
+			</If>
+
 
 			<If condition={props.footerOption === "resumo"}>
 				<Then>

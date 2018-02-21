@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './style/app.css';
 import { connect } from 'react-redux'
 import { fetchTvshowData, fetchEpisodesData } from './actions'

@@ -11,9 +11,9 @@ function TvshowHeader(props) {
 				</h1>
 			</div>
 			<div className="tvshow-header-subtitle-container">
-				{props.genres.map(genre => (
-						<h3 className="tvshow-header-subtitle-info">
-							{` ${genre} / ` + " "}
+				{props.genres.map((genre, key) => (
+						<h3 key={key} className="tvshow-header-subtitle-info">
+							{` ${genre} / `}
 						</h3>
 					))}
 				<h3 className="tvshow-header-subtitle-info">

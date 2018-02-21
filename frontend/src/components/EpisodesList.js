@@ -5,7 +5,7 @@ import '../style/episodeslist.css'
 
 function EpisodesList(props) {
 	const seasonEpisodes = props.episodes
-		.filter(episode => episode.SeasonNumber == props.season)
+		.filter(episode => episode.SeasonNumber === props.season)
 	return (
 		<section className="tvshow-episode-list">
 			{seasonEpisodes.map(episode => (
