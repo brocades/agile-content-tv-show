@@ -2,6 +2,7 @@
   display: inline-block;
   overflow: hidden;
   width: 40%;
+  height: 100%;
 }
 @media (min-width: 350px) and (max-width: 768px) {
   .tvshow-episodes-sidebar {

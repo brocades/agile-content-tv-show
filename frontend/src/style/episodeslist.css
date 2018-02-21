@@ -2,5 +2,6 @@
 	text-align: left;
 	overflow-y: scroll;
   max-height: 320px;
+  height: 60%;
   margin-top: 2px;
 }
