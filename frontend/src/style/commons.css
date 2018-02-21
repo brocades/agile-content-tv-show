@@ -23,6 +23,7 @@
 }
 .selected {
   border-bottom: solid 3px lightgreen;
+  transition: height 0.5s;
 }
 .darkgrey-bottom-border {
   border-bottom: solid 2px darkgrey;
