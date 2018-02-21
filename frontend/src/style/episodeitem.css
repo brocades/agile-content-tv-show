@@ -1,41 +1,38 @@
 .tvshow-episode-item {
-	border-bottom: solid 1px grey;
-	text-align: left;
-	cursor: pointer;
+  border-bottom: solid 1px grey;
+  text-align: left;
+  cursor: pointer;
 }
-
 .tvshow-episode-item-row {
-	position: relative;
+  position: relative;
 }
-
 .tvshow-episode-item-thumbnail {
-	height: 100%;
+  height: 100%;
   width: 100%;
 }
-
 .tvshow-episode-item-description {
-	padding: 5px;
-	text-align: justify;
+  padding: 5px;
+  text-align: justify;
 }
-
 .tvshow-episode-item-text {
-	display: inline-block;
-	font-weight: lighter;
-	font-size: 1em;
-	margin-left: 5px;
+  display: inline-block;
+  font-weight: lighter;
+  font-size: 1em;
+  margin-left: 5px;
 }
-
 .tvshow-episode-item-name {
-	display: inline-block;
+  display: inline-block;
 }
-
 .tvshow-episode-item-detail {
-	display: inline-block;
-	position: absolute;
-	right: 10px;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
 }
-
 .tvshow-episode-item-duration {
-	font-weight: lighter;
-	font-size: 1em;
+  font-weight: lighter;
+  font-size: 1em;
+}
+.lighter-text {
+  font-weight: lighter;
+  font-size: 1em;
 }

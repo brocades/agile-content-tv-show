@@ -4,26 +4,44 @@ import { If, Then, Else } from 'react-if'
 import { selectFooterOption } from '../actions'
 import GeneralInfo from './GeneralInfo'
 import CastInfo from './CastInfo'
-import '../style/tvshowfooter.css'
+import '../style/commons.css'
 
 function TvshowFooter(props) {
 	return (
 		<section className="tvshow-footer">
-			<div className="tvshow-footer-buttons-container">
-				<button
-					onClick={() => props.selectFooterOption("general")}
-					className="tvshow-footer-button selected">
-				RESUMO
-				</button>
+			<div className="buttons-container">
+				<If condition={props.footerOption === "resumo"}>
+					<Then>
+						<button
+							onClick={() => props.selectFooterOption("resumo")}
+							className="button selected">
+						RESUMO
+						</button>
 
-				<button
-					onClick={() => props.selectFooterOption("cast")}
-					className="tvshow-footer-button">
-				ELENCO
-				</button>
+						<button
+							onClick={() => props.selectFooterOption("elenco")}
+							className="button">
+						ELENCO
+						</button>
+					</Then>
+
+					<Else>
+						<button
+							onClick={() => props.selectFooterOption("resumo")}
+							className="button">
+						RESUMO
+						</button>
+
+						<button
+							onClick={() => props.selectFooterOption("elenco")}
+							className="button selected">
+						ELENCO
+						</button>
+					</Else>
+				</If>
 			</div>
 
-			<If condition={props.footerOption === "general"}>
+			<If condition={props.footerOption === "resumo"}>
 				<Then>
 					<GeneralInfo synopsis={props.synopsis} />
 				</Then>
@@ -40,7 +58,7 @@ function mapStateToProps(tvshow) {
 	return {
 		cast: tvshow.tvshowInfo.cast ? tvshow.tvshowInfo.cast : [],
 		synopsis: tvshow.tvshowInfo.synopsis ? tvshow.tvshowInfo.synopsis : "",
-		footerOption: tvshow.footerOption,
+		footerOption: tvshow.footerOption ? tvshow.footerOption : "resumo",
 	}
 }
 

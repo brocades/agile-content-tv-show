@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './style/app.css';
 import { connect } from 'react-redux'
 import { fetchTvshowData, fetchEpisodesData } from './actions'
 import TvshowHeader from './components/TvshowHeader'
@@ -17,9 +17,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Route exact path="/" render={() => (
-          <Redirect to={`/${this.props.tvshowUrlPath}`}/>
+          <Redirect to={`/${this.props.tvshowUrlPath}/season/${this.props.selectedSeason}`}/>
         )}/>
         <Route path={`/${this.props.tvshowUrlPath}`} render={() => (
           <div className="app-content">
@@ -28,7 +28,7 @@ class App extends Component {
               style={{"backgroundImage": `url(${this.props.backgroundImage})`}}>
 
               <div className="opaque-layer" >
-                <header className="App-header">
+                <header className="app-header">
                   <TvshowHeader />
                 </header>
 
@@ -43,10 +43,6 @@ class App extends Component {
             </footer>
           </div>
         )}/>
-
-
-
-
       </div>
     );
   }
@@ -56,6 +52,7 @@ function mapStateToProps(tvshow) {
   return {
     tvshowUrlPath: tvshow.tvshowInfo.urlPath ? tvshow.tvshowInfo.urlPath.trim() : "",
     backgroundImage: tvshow.tvshowInfo.image ? tvshow.tvshowInfo.image : "",
+    selectedSeason: tvshow.selectedSeason ? tvshow.selectedSeason : 1,
   }
 }
 

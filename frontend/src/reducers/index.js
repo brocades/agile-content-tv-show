@@ -12,7 +12,7 @@ const initialAppState = {
 	seasons: [],
 	selectedSeason: 1,
 	detailedEpisode: "",
-	footerOption: "general",
+	footerOption: "resumo",
 }
 
 function tvshow (state = initialAppState, action) {

@@ -5,6 +5,7 @@ import { selectSeason } from '../actions'
 import { If, Then, Else } from 'react-if'
 import { Route, Link } from 'react-router-dom'
 import '../style/episodessidebar.css'
+import '../style/commons.css'
 
 class EpisodesSidebar extends Component {
 
@@ -12,14 +13,14 @@ class EpisodesSidebar extends Component {
 
 		return (
 			<section className="tvshow-episodes-sidebar">
-				<div className="tvshow-episodes-seasons-buttons">
+				<div className="buttons-container">
 					{this.props.seasons.map(seasonNumber => (
 						<If condition={seasonNumber === this.props.selectedSeason}>
 							<Then>
 								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
 									<button id={seasonNumber}
 										onClick={() => this.props.changeSeason(seasonNumber)}
-										className="tvshow-episodes-seasons-button selected">
+										className="button selected">
 										{`T ${seasonNumber}`}
 									</button>
 								</Link>
@@ -29,7 +30,7 @@ class EpisodesSidebar extends Component {
 								<Link to={`/${this.props.tvshowUrlPath}/season/${seasonNumber}`}>
 									<button id={seasonNumber}
 										onClick={() => this.props.changeSeason(seasonNumber)}
-										className="tvshow-episodes-seasons-button">
+										className="button">
 										{`T ${seasonNumber}`}
 									</button>
 								</Link>

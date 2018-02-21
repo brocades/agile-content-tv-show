@@ -1,0 +1,32 @@
+@import "constants";
+
+.button {
+	background-color: transparent;
+	border: none;
+	.darkgrey-bottom-border;
+	text-transform: capitalize;
+	color: white;
+	padding: 10px;
+	outline: none;
+	cursor: pointer;
+	margin-bottom: -3px;
+  @media @min350 and @max768 {
+		font-size: 1.1em;
+	}
+  &:hover {
+    background-color: rgba(21,21,21, @medium-opaque);
+  }
+}
+
+.buttons-container {
+	text-align: left;
+	.darkgrey-bottom-border;
+}
+
+.selected {
+	border-bottom: solid 3px lightgreen;
+}
+
+.darkgrey-bottom-border {
+	border-bottom: solid 2px darkgrey;
+}

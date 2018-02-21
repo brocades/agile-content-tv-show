@@ -1,0 +1,29 @@
+.button {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px darkgrey;
+  text-transform: capitalize;
+  color: white;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: -3px;
+}
+@media (min-width: 350px) and (max-width: 768px) {
+  .button {
+    font-size: 1.1em;
+  }
+}
+.button:hover {
+  background-color: rgba(21, 21, 21, 0.7);
+}
+.buttons-container {
+  text-align: left;
+  border-bottom: solid 2px darkgrey;
+}
+.selected {
+  border-bottom: solid 3px lightgreen;
+}
+.darkgrey-bottom-border {
+  border-bottom: solid 2px darkgrey;
+}

@@ -1,44 +1,10 @@
 .tvshow-episodes-sidebar {
-	overflow: hidden;
-	width: 40%;
-	display: inline-block;
+  display: inline-block;
+  overflow: hidden;
+  width: 40%;
 }
-
-.tvshow-episodes-seasons-buttons {
-	text-align: left;
-	border-bottom: solid 2px darkgrey;
+@media (min-width: 350px) and (max-width: 768px) {
+  .tvshow-episodes-sidebar {
+    width: 100%;
+  }
 }
-
-.tvshow-episodes-seasons-button {
-	background-color: transparent;
-	border: none;
-	border-bottom: solid 2px darkgrey;
-	text-transform: capitalize;
-	color: white;
-	padding: 10px;
-	outline: none;
-	cursor: pointer;
-	margin-bottom: -3px;
-}
-
-.tvshow-episodes-seasons-button:hover {
-	background-color: rgba(21,21,21, .7);
-}
-
-.selected {
-	border-bottom: solid 3px lightgreen;
-}
-
-@media only screen
-and (min-device-width : 350px)
-and (max-device-width : 768px) {
-
-	.tvshow-episodes-sidebar {
-		width: 100%;
-		display: inline-block;
-	}
-
-	.tvshow-episodes-seasons-button {
-		font-size: 1.1em;
-	}
- }
