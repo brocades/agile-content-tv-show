@@ -1,6 +1,6 @@
 .tvshow-episode-list {
 	text-align: left;
-	overflow-y: scroll;
+	overflow-y: auto;
   max-height: 320px;
   height: 57%;
   margin-top: 2px;
