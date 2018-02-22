@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import EpisodesList from './EpisodesList'
 import { selectSeason } from '../actions'
 import { If, Then, Else } from 'react-if'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Redirect } from 'react-router-dom'
 import '../style/episodessidebar.css'
 import '../style/commons.css'
 
@@ -13,6 +13,9 @@ class EpisodesSidebar extends Component {
 
 		return (
 			<section className="tvshow-episodes-sidebar">
+				<Route exact path={`/${this.props.tvshowUrlPath}`} render={() => (
+          <Redirect to={`/${this.props.tvshowUrlPath}/season/${this.props.selectedSeason}`}/>
+        )}/>
 				<div className="buttons-container">
 					{this.props.seasons.map((seasonNumber, key) => (
 						<If key={key} condition={seasonNumber === this.props.selectedSeason}>
