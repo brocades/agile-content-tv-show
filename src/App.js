@@ -20,7 +20,7 @@ class App extends Component {
         <Route exact path="/" render={() => (
           <Redirect to={`/${this.props.tvshowUrlPath}`}/>
         )}/>
-        <Route path={`/${this.props.tvshowUrlPath}`} render={() => (
+        <Route path="/:tvshowname" render={() => (
           <div className="app-content">
             <div
               className="tvshow-content"
