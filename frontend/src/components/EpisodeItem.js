@@ -32,6 +32,7 @@ function EpisodeItem(props) {
 							<div className="tvshow-episode-item-image">
 								<picture className="tvshow-episode-item-thumbnail">
 								  <source srcSet={Image} type="image/webp"/>
+								  <img className="tvshow-episode-item-thumbnail" src alt="Image not suported"/>
 								</picture>
 							</div>
 
